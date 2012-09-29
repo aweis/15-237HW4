@@ -1,16 +1,24 @@
 <!DOCTYPE>
 <html>
   <head>
+    <title>15-237 HW4</title>
     <!-- Eric Meyer's CSS reset -->
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    
-    <title>15-237 HW4</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
-    <p>Hello World</p> 
-		<ul>
-			<li>item1</li>
-			<li>item2</li>
-		</ul>
-	</body>
+    <div id="wrapper"> 
+      <header>TODO list</header> 
+      <ul class="todo">
+        <li>item1</li>
+        <li>item2</li>
+      </ul>
+      <label for="new_task">Add your task here</label>
+      <form id="task_form">
+        <input type="text" name="new_task" id="new_task" />
+        <input type="submit" value="Add"> 
+      </form>
+    </div>
+    <script src='scripts.js'></script> 
+  </body>
 </html>
