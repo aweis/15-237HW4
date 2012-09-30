@@ -9,15 +9,25 @@
   <body>
     <div id="wrapper"> 
       <header>TODO list</header> 
-      <ul id="todoList">
-        <li>item1</li>
-        <li>item2</li>
-      </ul>
-      <label for="new_task">Add your task here</label>
-      <form id="task_form">
-        <input type="text" name="new_task" id="new_task" />
-        <input type="submit" value="Add"> 
-      </form>
+			<div id="contents">
+				<div id="lists">
+					<div class="list">
+						<div class="listName">List 1</div>
+				
+						<ul id="todoList">
+							<li>item1</li>
+							<li>item2</li>
+						</ul>
+						<label for="new_task">Add your task here</label>
+						<form id="task_form">
+							<input type="text" name="new_task" id="new_task" />
+							<input type="submit" value="Add"> 
+						</form>
+					</div>
+				</div>
+
+				<div id="menu"></div>
+			</div>
     </div>
     <script src='javascripts/scripts.js'></script> 
   </body>
