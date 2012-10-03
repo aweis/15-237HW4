@@ -11,24 +11,38 @@
       <header>TODO list</header> 
 			<div id="contents">
 				<div id="lists">
-					<div class="list">
-						<div class="listName">List 1</div>
-				
-						<ul id="todoList">
-							<li>item1</li>
-							<li>item2</li>
-						</ul>
-						<label for="new_task">Add your task here</label>
-						<form id="task_form">
-							<input type="text" name="new_task" id="new_task" />
-							<input type="submit" value="Add"> 
+					<div class="listBox">
+						<label for="new_list">New list: </label>
+						<form id="list_form">
+							<input type="text" name="new_list" id="new_list" />
+							<input type="submit" value="Add">
 						</form>
+					</div>
+
+					<div class="listBox">
+						
+						<div class="listName">List 1</div>
+			
+						<div class="list">
+							<ul id="todoList">
+								<li>item1</li>
+								<li>item2</li>
+							</ul>
+
+							<label for="new_task">Add your task here</label>
+							<form id="task_form">
+								<input type="text" name="new_task" id="new_task" />
+								<input type="submit" value="Add"> 
+							</form>
+						</div>
+
 					</div>
 				</div>
 
 				<div id="menu"></div>
 			</div>
     </div>
+		<script src= "javascripts/jquery-1.8.2.min.js"></script>
     <script src='javascripts/scripts.js'></script> 
   </body>
 </html>
