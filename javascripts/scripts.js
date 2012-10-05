@@ -6,16 +6,10 @@
  */
 
 // Gets the reference to the task form and saves it in a variable
-var taskForm = document.getElementById('task_form');
 var listForm = document.getElementById("list_form");
 
 // Attaching the submit event to the form
 // Different browsers do it differently so we include both ways
-if (taskForm.attachEvent) {
-  taskForm.attachEvent("submit", processForm);
-} else {
-  taskForm.addEventListener("submit", processForm); 
-}
 
 if(listForm.attachEvent) {
 	listForm.attachEvent("submit", processListForm);
@@ -84,25 +78,32 @@ function validateForm(formData) {
 
 function updateList(formData, list) {
   var task = formData['input'];
-  var taskText = $(document.createTextNode(task));
-  var item = $("<li/>");
-  item.append(taskText);
+  var item = $("<li>" + task + "</li>");
   list.append(item);
 }
 
 function newList(formData) {
-	var listList = $(document.getElementById("lists"));
+	// hide old list
+	var activeList = $(".listBoxOn")[0];
+	$(activeList).attr("class", "listBoxOff");
+
+	var listList = $("#lists");
+	var numLists = listList.children().length;
+
+	// set list name
 	var newL = formData["input"];
 	
 	var listName = $("<div>" + newL + "</div>");
 	listName.addClass("listName");
 
+	// add empty list
 	var list = $("<div/>");
 	list.addClass("list");
 
 	var tdl = $("<ul/>");
 	tdl.addClass("toDoList");
 
+	// add new task form
 	var label = $("<label>Add your task here</label>");
 	label.attr("for", "new_task");
 	var form = $("<form/>");
@@ -121,11 +122,31 @@ function newList(formData) {
 	list.append(form);
 
 	var listBox = $("<div/>");
-	listBox.addClass("listBox");
+	listBox.addClass("listBoxOn");
+	listBox.attr("id", numLists);
 
 	listBox.append(listName);
 	listBox.append(list);
 	listList.append(listBox);
+
+	// add new list to the menu
+	var menu = $("#menu");
+	var menuItem = $("<div>" + newL + "</div>");
+	menuItem.addClass("menuItem");
+	menuItem.attr("id", numLists);
+	menuItem.click(chooseList);
+
+	menu.append(menuItem);
+}
+
+function chooseList(e){
+	var listID = $(e.target).attr("id");
+
+	var activeList = $(".listBoxOn")[0];
+	$(activeList).attr("class", "listBoxOff");
+
+	var newList = $("#" + listID);
+	newList.attr("class", "listBoxOn");
 }
 
 /*
