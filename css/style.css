@@ -5,6 +5,12 @@ html{
 	font-size: 20px;
 }
 
+canvas{
+	position: fixed;
+	//border:1px solid #000000;
+	background-color: #ECD9BE;
+}
+
 header{
 	text-align: center;
 	font-size: 36px;
