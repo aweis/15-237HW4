@@ -9,6 +9,7 @@ header{
 	text-align: center;
 	font-size: 36px;
 	color: #E0C092;
+	margin-bottom: 20px;
 }
 
 #wrapper{
@@ -32,8 +33,9 @@ header{
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 500px;
+	width: 550px;
 	height: 100%;
+	overflow: auto;
 }
 
 #menu{
@@ -41,11 +43,45 @@ header{
 	position: absolute;
 	right: 0;
 	top: 0;
-	width: 200px;
+	width: 150px;
 	height: 100%;
+	overflow: auto;
 }
 
-.listBox{
+.menuItem{
+	margin: 5px 10px;
+	padding: 5px 10px;
+}
+
+.menuItem:hover{
+	background-color: #708F61;
+}
+
+.menuItem:active{
+	position: relative;
+	top: 1px;
+}
+
+.listBoxOn{
+	margin: 10px;
+	padding: 5px;
+	background-color: #B8915A;
+	-moz-box-shadow: 0px 0px 3px #000;
+	-webkit-box-shadow: 0px 0px 3px #000;
+	box-shadow: 0px 0px 3px #000;
+	-webkit-transition: all 0.5s ease-in-out 0s;
+	-moz-transition: all 0.5s ease-in-out 0s;
+	height: 400px;
+	overflow: auto;
+}
+
+.listBoxOff{
+	-webkit-transition: all 0.5s ease-in-out 0s;
+	-moz-transition: all 0.5s ease-in-out 0s;
+	display: none;
+}
+
+.listFormBox{
 	margin: 10px;
 	padding: 5px;
 	background-color: #B8915A;
@@ -59,6 +95,7 @@ header{
 	padding: 6px;
 	border-radius: 12px;
 	margin: 5px;
+	font-weight: bold;
 }
 
 .list{
@@ -71,4 +108,12 @@ header{
 ul{
 	list-style-type: circle;
 	padding-left: 25px;
+}
+
+input[type="text"]{
+	border-radius: 5px;
+}
+
+.list label{
+	font-size: 16px;
 }
