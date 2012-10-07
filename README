@@ -1,4 +1,42 @@
-Maria Khutoretsky
-Adam Weis
+Maria Khutoretsky (mkhutore)
+Adam Weis (aweis)
 
 This is our README for the 15-237 HW4 Unit Project
+
+We wanted to make something that was robust, useful and we can be proud of - we think we accomplished our goal.
+We always wanted a better way to keep up with our tasks, and we feel we have implemented a project that does this well.
+We wanted a nicer interface than what Google Tasks offered, but we still wanted to maintain the portability and ubiquity of using a Google API.
+
+Things we learned:
+
+Maria:
+Cygwin on Windows
+Git
+Google API
+JQuery
+
+Adam:
+Google API
+JQuery
+
+Some of our gripes:
+
+Adam:
+The Google Task API.  Apparently this API is in alpha... That is a disgrace to all alpha software that has ever existed.  I was struggling so much to get anything to work, I attended 4 consecutive office hours with Brandon and he recommended I drop Google Task API for "remember the milk API".  I always wanted a better Google Task interface, so I persevered. I have a brother who works at Google, and after telling him that the Google Task API was a pain to work with, he said "tasks are a cluster F@#K".  So Googler's are well aware of this deficiency.
+Specifics:
+Oauth2.0 was a pain to work with and would only work as a pop-up.
+There is no documentation on how to use their request bodies.
+Completed tasks that have their state change from ompleted to not completed must have the completed at date field set to null.
+
+
+I really wanted to have more time to work on the user interface - I really want something that looks closer to http://www.wunderlist.com/
+
+Canvas:
+The best use of canvas for this application that we could come up with is just keeping tabs of tasks left to do.
+
+How to run:
+you will need a simple HTTP server running in the directory to get around Google API issues.
+e.g. python -m SimpleHTTPServer
+
+Commments about the lab:
+We each spent about 25 hours on the project.
