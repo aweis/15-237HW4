@@ -51,7 +51,9 @@ function processListForm(e) {
 	//Perform validation
 	if (validateForm(input)) {
 		console.log('Validation passed');
-		newList(input);
+		var listList = $("#lists");
+		var numLists = listList.children().length;
+		newList(input, numLists);
 		clearForm(listForm);
 	} else {
 		console.log('Validation failed');
@@ -79,13 +81,12 @@ function updateList(task, list) {
   list.append(item);
 }
 
-function newList(newL) {
+function newList(newL, id) {
 	// hide old list
 	var activeList = $(".listBoxOn")[0];
 	$(activeList).attr("class", "listBoxOff");
 
 	var listList = $("#lists");
-	var numLists = listList.children().length;
 
 	// set list name
 	var listName = $("<div>" + newL + "</div>");
@@ -118,7 +119,7 @@ function newList(newL) {
 
 	var listBox = $("<div/>");
 	listBox.addClass("listBoxOn");
-	listBox.attr("id", numLists);
+	listBox.attr("id", id);
 
 	listBox.append(listName);
 	listBox.append(list);
@@ -128,7 +129,7 @@ function newList(newL) {
 	var menu = $("#menu");
 	var menuItem = $("<div>" + newL + "</div>");
 	menuItem.addClass("menuItem");
-	menuItem.attr("id", numLists);
+	menuItem.attr("id", id);
 	menuItem.click(chooseList);
 
 	menu.append(menuItem);
@@ -136,7 +137,7 @@ function newList(newL) {
 
 function chooseList(e){
 	var listID = $(e.target).attr("id");
-
+	
 	var activeList = $(".listBoxOn")[0];
 	$(activeList).attr("class", "listBoxOff");
 

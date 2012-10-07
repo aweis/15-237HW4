@@ -41,7 +41,7 @@ function getTasks(taskList) {
   request.execute(function(resp) {  
     if (resp.items !== undefined) {
       resp.items.forEach(function(task) {
-        updateList(task.title, $($(".listBoxOn ul")[0]));
+        updateList(task.title, $("#" + taskList + " ul"));
       });
     } 
   });
@@ -51,7 +51,7 @@ function getTaskLists() {
   var request = gapi.client.tasks.tasklists.list({});
   request.execute(function(resp) {
     resp.items.forEach(function(taskList) { 
-      newList(taskList.title);
+      newList(taskList.title, taskList.id);
       getTasks(taskList.id); 
     });
   });
