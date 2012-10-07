@@ -76,9 +76,20 @@ function validateForm(input) {
   return true;
 }
 
-function updateList(task, list) {
-  var item = $("<li>" + task + "</li>");
-  list.append(item);
+function updateList(taskName, list) {
+  var item = $("<li>" + taskName + "</li>");
+	var checkbox = $("<input/>");
+	checkbox.attr("type", "checkbox");
+	checkbox.change(taskDone);
+
+	item.append(checkbox);
+
+	list.append(item);
+}
+
+function taskDone(e)
+{
+	$(e.target.parentNode).remove();
 }
 
 function newList(newL, id) {
