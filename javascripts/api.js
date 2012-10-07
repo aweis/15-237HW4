@@ -4,6 +4,8 @@ var clientId = '461317286070-csbrouq2mlscb8gru49g3hsdsklir5eu.apps.googleusercon
 var scopes = 'https://www.googleapis.com/auth/tasks';
 var apiKey = 'AIzaSyCqCWh7YGfoxyhLp2WE1uKMq6iiJ-eKl84';
 
+var tasksLeft = 0;
+
 //* Google Authentication
 window.onload = function() {
     handleClientLoad();
@@ -42,7 +44,9 @@ function getTasks(taskList) {
     if (resp.items !== undefined) {
       resp.items.forEach(function(task) {
         updateList(task.id, task.title, $("#" + taskList + "taskBox" + " ul")); 
-        if(task.status === "completed") {
+        tasksLeft++;
+				if(task.status === "completed") {
+					tasksLeft--;
           $('#'+task.id).addClass("complete");
           $('#'+task.id + " :checkbox").prop("checked", true);
         }
@@ -81,6 +85,7 @@ function addTaskList(title) {
 }
 
 function addTask(title) {
+	tasksLeft++;
   var task = {
     "title":title
   }
@@ -106,6 +111,7 @@ function completeTask(task) {
   request.execute(function(resp) {
     console.log(resp);
   });
+	tasksLeft--;
 }
 
 function uncompleteTask(task) {
@@ -121,4 +127,5 @@ function uncompleteTask(task) {
   request.execute(function(resp) {
     console.log(resp);
   });
+	tasksLeft++;
 }
