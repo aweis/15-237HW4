@@ -32,6 +32,7 @@ function processForm(e) {
   if (validateForm(input)) {
     console.log('Validation passed');
     updateList(input, $(list));
+    addTask(input); //Server call
     clearForm(e.target);
   } else {
     console.log('Validation failed');

@@ -71,8 +71,22 @@ function addTaskList(title) {
   var request = gapi.client.tasks.tasklists.insert({'resource': tasklist});
   request.execute(function(resp) {
     console.log(resp);
-    console.log($('.menuItem').last());
     $('.menuItem').last().attr('id', resp.id); 
     $('.listBoxOn').last().attr('id', resp.id+"taskBox"); 
+  });
+}
+
+function addTask(title) {
+  var task = {
+    "title":title
+  }
+  var taskList = $('.listBoxOn').last().attr('id').replace("taskBox", "");
+  console.log(taskList);
+  var request = gapi.client.tasks.tasks.insert({
+    'tasklist': taskList, 
+    'resource': task
+  });
+  request.execute(function(resp) {
+    console.log(resp);
   });
 }
