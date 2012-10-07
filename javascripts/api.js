@@ -41,7 +41,7 @@ function getTasks(taskList) {
   request.execute(function(resp) {  
     if (resp.items !== undefined) {
       resp.items.forEach(function(task) {
-        updateList(task.title, $("#" + taskList + " ul"));
+        updateList(task.title, $("#" + taskList + "taskBox" + " ul"));
       });
     } 
   });
