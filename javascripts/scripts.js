@@ -31,7 +31,7 @@ function processForm(e) {
   //Perform validation
   if (validateForm(input)) {
     console.log('Validation passed');
-    updateList(input, $(list));
+    updateList($(list).length, input, $(list));
     addTask(input); //Server call
     clearForm(e.target);
   } else {
@@ -79,10 +79,11 @@ function validateForm(input) {
   return true;
 }
 
-function updateList(taskName, list) {
+function updateList(taskId, taskName, list) {
   var item = $("<li>" + taskName + "</li>");
 	var checkbox = $("<input/>");
-	checkbox.attr("type", "checkbox");
+  item.attr("id", taskId);	
+  checkbox.attr("type", "checkbox");
 	checkbox.change(taskDone);
 
 	item.append(checkbox);
@@ -92,7 +93,13 @@ function updateList(taskName, list) {
 
 function taskDone(e)
 {
-	$(e.target.parentNode).remove();
+  if ($(e.target).parent().hasClass("complete")) {
+    uncompleteTask($(e.target).parent().attr("id"));
+  }
+  else {
+    completeTask($(e.target).parent().attr("id"));
+  }
+  $(e.target).parent().toggleClass("complete");
 }
 
 function newList(newL, id) {

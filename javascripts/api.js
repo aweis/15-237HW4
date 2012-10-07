@@ -41,7 +41,11 @@ function getTasks(taskList) {
   request.execute(function(resp) {  
     if (resp.items !== undefined) {
       resp.items.forEach(function(task) {
-        updateList(task.title, $("#" + taskList + "taskBox" + " ul"));
+        updateList(task.id, task.title, $("#" + taskList + "taskBox" + " ul")); 
+        if(task.status === "completed") {
+          $('#'+task.id).addClass("complete");
+          $('#'+task.id + " :checkbox").prop("checked", true);
+        }
       });
     } 
   });
@@ -85,6 +89,34 @@ function addTask(title) {
   var request = gapi.client.tasks.tasks.insert({
     'tasklist': taskList, 
     'resource': task
+  });
+  request.execute(function(resp) {
+    console.log(resp);
+    $('.listBoxOn ul li').last().attr('id', resp.id);
+  });
+}
+
+function completeTask(task) {
+  var taskListId = $('.listBoxOn').last().attr('id').replace("taskBox", "");
+  var request = gapi.client.tasks.tasks.patch({
+      'tasklist': taskListId,
+      'task'    : task,
+      'resource': {'status':"completed"}
+  });
+  request.execute(function(resp) {
+    console.log(resp);
+  });
+}
+
+function uncompleteTask(task) {
+  var taskListId = $('.listBoxOn').last().attr('id').replace("taskBox", "");
+  var request = gapi.client.tasks.tasks.patch({
+      'tasklist': taskListId,
+      'task'    : task,
+      'resource': {
+                   'status':"needsAction",
+                   'completed':null
+                  }
   });
   request.execute(function(resp) {
     console.log(resp);
