@@ -122,3 +122,8 @@ input[type="checkbox"]{
 	position: absolute;
 	right: 25px;;
 }
+
+.complete{
+	text-decoration: line-through;
+	color: #9D6868;
+}
