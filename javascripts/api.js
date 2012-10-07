@@ -5,6 +5,9 @@ var scopes = 'https://www.googleapis.com/auth/tasks';
 var apiKey = 'AIzaSyCqCWh7YGfoxyhLp2WE1uKMq6iiJ-eKl84';
 
 //* Google Authentication
+window.onload = function() {
+    handleClientLoad();
+  };
 
 function handleClientLoad() { 
   gapi.client.setApiKey(apiKey);
@@ -22,12 +25,9 @@ function handleAuthResult(authResult) {
   var authorizeButton = document.getElementById('authorize-button');
    
   if (authResult && !authResult.error) {
-    authorizeButton.style.visibility = 'hidden';
     makeApiCall();
   } else {
     console.log(authResult.error);
-    authorizeButton.style.visibility = '';
-    authorizeButton.onclick = handleAuthClick;
   }
 }
 
@@ -62,4 +62,17 @@ function makeApiCall() {
     console.log("loaded.");
     getTaskLists();
   }); 
-}                      
+}
+
+function addTaskList(title) {
+  var tasklist = {
+    'title': title
+  }
+  var request = gapi.client.tasks.tasklists.insert({'resource': tasklist});
+  request.execute(function(resp) {
+    console.log(resp);
+    console.log($('.menuItem').last());
+    $('.menuItem').last().attr('id', resp.id); 
+    $('.listBoxOn').last().attr('id', resp.id+"taskBox"); 
+  });
+}

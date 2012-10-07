@@ -51,9 +51,11 @@ function processListForm(e) {
 	//Perform validation
 	if (validateForm(input)) {
 		console.log('Validation passed');
-		var listList = $("#lists");
+    var listList = $("#lists");
 		var numLists = listList.children().length;
 		newList(input, numLists);
+    
+    addTaskList(input); //Server call	
 		clearForm(listForm);
 	} else {
 		console.log('Validation failed');
@@ -130,7 +132,7 @@ function newList(newL, id) {
 
 	var listBox = $("<div/>");
 	listBox.addClass("listBoxOn");
-	listBox.attr("id", id);
+	listBox.attr("id", id+"taskBox");
 
 	listBox.append(listName);
 	listBox.append(list);
@@ -152,7 +154,7 @@ function chooseList(e){
 	var activeList = $(".listBoxOn")[0];
 	$(activeList).attr("class", "listBoxOff");
 
-	var newList = $("#" + listID);
+	var newList = $("#" + listID + "taskBox");
 	newList.attr("class", "listBoxOn");
 }
 
