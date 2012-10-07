@@ -22,16 +22,16 @@ function processForm(e) {
   // We prevent this behavior
   // e is the event argument passed into the function
   if (e.preventDefault) e.preventDefault();
-  var formData = new Object();
+  
 	var form = $($(e.target).children()[0]).val();
-	formData["input"] = form;
+	var input = form;
 
 	var list = $(e.target.parentNode).children()[0];
 
   //Perform validation
-  if (validateForm(formData)) {
+  if (validateForm(input)) {
     console.log('Validation passed');
-    updateList(formData, $(list));
+    updateList(input, $(list));
     clearForm(e.target);
   } else {
     console.log('Validation failed');
@@ -46,13 +46,12 @@ function processListForm(e) {
 	// We prevent this behavior
 	// e is the event argument passed into the function
 	if (e.preventDefault) e.preventDefault();
-	var formData = new Object();
-	formData["input"] = document.getElementById("new_list").value;
+	var input = document.getElementById("new_list").value;
 	
 	//Perform validation
-	if (validateForm(formData)) {
+	if (validateForm(input)) {
 		console.log('Validation passed');
-		newList(formData);
+		newList(input);
 		clearForm(listForm);
 	} else {
 		console.log('Validation failed');
@@ -65,8 +64,7 @@ function processListForm(e) {
 Return true if the form is valid, and false otherwise
 
 */
-function validateForm(formData) {
-  var input = formData['input'];
+function validateForm(input) {
   if(typeof input === "string" && input !== "") {
     console.log("Validation passed on task: " + input);
   } else {
@@ -76,13 +74,12 @@ function validateForm(formData) {
   return true;
 }
 
-function updateList(formData, list) {
-  var task = formData['input'];
+function updateList(task, list) {
   var item = $("<li>" + task + "</li>");
   list.append(item);
 }
 
-function newList(formData) {
+function newList(newL) {
 	// hide old list
 	var activeList = $(".listBoxOn")[0];
 	$(activeList).attr("class", "listBoxOff");
@@ -91,8 +88,6 @@ function newList(formData) {
 	var numLists = listList.children().length;
 
 	// set list name
-	var newL = formData["input"];
-	
 	var listName = $("<div>" + newL + "</div>");
 	listName.addClass("listName");
 
@@ -104,7 +99,7 @@ function newList(formData) {
 	tdl.addClass("toDoList");
 
 	// add new task form
-	var label = $("<label>Add your task here</label>");
+	var label = $("<label>Add your task here:</label>");
 	label.attr("for", "new_task");
 	var form = $("<form/>");
 	var text = $("<input/>");

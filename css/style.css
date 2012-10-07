@@ -9,6 +9,7 @@ header{
 	text-align: center;
 	font-size: 36px;
 	color: #E0C092;
+	margin-bottom: 20px;
 }
 
 #wrapper{
@@ -70,15 +71,13 @@ header{
 	box-shadow: 0px 0px 3px #000;
 	-webkit-transition: all 0.5s ease-in-out 0s;
 	-moz-transition: all 0.5s ease-in-out 0s;
-	//overflow: auto;
-	//height: auto;
+	height: 400px;
+	overflow: auto;
 }
 
 .listBoxOff{
 	-webkit-transition: all 0.5s ease-in-out 0s;
 	-moz-transition: all 0.5s ease-in-out 0s;
-	//overflow: hidden;
-	//height: 0;
 	display: none;
 }
 
@@ -96,6 +95,7 @@ header{
 	padding: 6px;
 	border-radius: 12px;
 	margin: 5px;
+	font-weight: bold;
 }
 
 .list{
@@ -112,4 +112,8 @@ ul{
 
 input[type="text"]{
 	border-radius: 5px;
+}
+
+.list label{
+	font-size: 16px;
 }
