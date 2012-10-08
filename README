@@ -22,7 +22,7 @@ JQuery
 Some of our gripes:
 
 Adam:
-The Google Task API.  Apparently this API is in alpha... That is a disgrace to all alpha software that has ever existed.  I was struggling so much to get anything to work, I attended 4 consecutive office hours with Brandon and he recommended I drop Google Task API for "remember the milk API".  I always wanted a better Google Task interface, so I persevered. I have a brother who works at Google, and after telling him that the Google Task API was a pain to work with, he said "tasks are a cluster F@#K".  So Googler's are well aware of this deficiency.
+The Google Task API.  Apparently this API is in alpha... That is a disgrace to all alpha software that has ever existed.  I was struggling so much to get anything to work, I attended 4 consecutive office hours with Brandon and he recommended I drop Google Task API for "remember the milk API".  I always wanted a better Google Task interface, so I persevered. 
 Specifics:
 Oauth2.0 was a pain to work with and would only work as a pop-up.
 There is no documentation on how to use their request bodies.
