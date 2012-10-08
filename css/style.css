@@ -1,31 +1,31 @@
-html{
+html {
 	//background-color: #854242;
 	background-image: url("low_contrast_linen_red.png");
 	color: #854242;
 	font-size: 20px;
 }
 
-canvas{
+canvas {
 	position: fixed;
 	//border:1px solid #000000;
 	background-color: #ECD9BE;
 }
 
-header{
+header {
 	text-align: center;
 	font-size: 36px;
 	color: #E0C092;
 	margin-bottom: 20px;
 }
 
-#wrapper{
+#wrapper {
 	width: 700px;
 	padding: 30px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-#contents{
+#contents {
 	background-color: #708F61;
 	-moz-box-shadow: 0px 0px 5px #000;
 	-webkit-box-shadow: 0px 0px 5px #000;
@@ -35,7 +35,7 @@ header{
 	height: 500px;
 }
 
-#lists{
+#lists {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -44,7 +44,7 @@ header{
 	overflow: auto;
 }
 
-#menu{
+#menu {
 	background-color: #B8DEA6;
 	position: absolute;
 	right: 0;
@@ -54,40 +54,40 @@ header{
 	overflow: auto;
 }
 
-.menuItem{
+.menuItem {
 	margin: 5px 10px;
 	padding: 5px 10px;
 }
 
-.menuItem:hover{
+.menuItem:hover {
 	background-color: #708F61;
 }
 
-.menuItem:active{
+.menuItem:active {
 	position: relative;
 	top: 1px;
 }
 
-.listBoxOn{
+.listBoxOn {
 	margin: 10px;
 	padding: 5px;
 	background-color: #B8915A;
 	-moz-box-shadow: 0px 0px 3px #000;
 	-webkit-box-shadow: 0px 0px 3px #000;
 	box-shadow: 0px 0px 3px #000;
-	-webkit-transition: all 0.5s ease-in-out 0s;
-	-moz-transition: all 0.5s ease-in-out 0s;
+	//-webkit-transition: all 0.5s ease-in-out 0s;
+	//-moz-transition: all 0.5s ease-in-out 0s;
 	height: 400px;
 	overflow: auto;
 }
 
-.listBoxOff{
-	-webkit-transition: all 0.5s ease-in-out 0s;
-	-moz-transition: all 0.5s ease-in-out 0s;
+.listBoxOff {
+	//-webkit-transition: all 0.5s ease-in-out 0s;
+	//-moz-transition: all 0.5s ease-in-out 0s;
 	display: none;
 }
 
-.listFormBox{
+.listFormBox {
 	margin: 10px;
 	padding: 5px;
 	background-color: #B8915A;
@@ -96,7 +96,7 @@ header{
 	box-shadow: 0px 0px 3px #000;
 }
 
-.listName{
+.listName {
 	background-color: #E0C092;
 	padding: 6px;
 	border-radius: 12px;
@@ -104,32 +104,32 @@ header{
 	font-weight: bold;
 }
 
-.list{
+.list {
 	background-color: #E0C092;
 	padding: 6px;
 	border-radius: 8px;
 	margin: 5px;
 }
 
-ul{
+ul {
 	list-style-type: circle;
 	padding-left: 25px;
 }
 
-input[type="text"]{
+input[type="text"] {
 	border-radius: 5px;
 }
 
-.list label{
+.list label {
 	font-size: 16px;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
 	position: absolute;
-	right: 25px;;
+	right: 25px;
 }
 
-.complete{
+.complete {
 	text-decoration: line-through;
 	color: #9D6868;
 }
