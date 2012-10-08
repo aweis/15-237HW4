@@ -9,7 +9,7 @@ Adam Weis (aweis)
 
 3. HTML: valid HTML (index.html)
 
-4. CSS: 
+4. CSS: Easy to read - followed style guidelines
 
 5. DOM manipulation: adding and removing tasks and task lists,
 		for instance, function newList (javascripts/scripts.js line 105)
