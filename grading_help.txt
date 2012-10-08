@@ -1,0 +1,20 @@
+Maria Khutoretsky (mkhutore)
+Adam Weis (aweis)
+
+1. Javascript: objects store API information, makes it modular for adding
+		other APIs (javascripts/api.js)
+
+2. Canvas: remaining task counter (top left corner), shows how much you have
+		left to do (javascripts/canvas.js)
+
+3. HTML: valid HTML (index.html)
+
+4. CSS: 
+
+5. DOM manipulation: adding and removing tasks and task lists,
+		for instance, function newList (javascripts/scripts.js line 105)
+
+6. AJAX and/or JSON-P client: Google Tasks API (javascripts/api.js)
+
+7. jQuery: used for DOM manipulation and some other stuff,
+		for instance, function taskDone (javascripts/scripts.js line 94)
